@@ -18,8 +18,7 @@ dependencies {
 }
 
 intellij {
-//    version ideaVersion
-    localPath 'D:\\dev\\JetBrains\\IntelliJ IDEA Community Edition 2018.2.7'
+    version ideaVersion
     pluginName 'CodeSearch'
     updateSinceUntilBuild = false
 }
