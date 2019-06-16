@@ -1,0 +1,45 @@
+<idea-plugin>
+    <id>io.heidou.codesearch</id>
+    <name>CodeSearch</name>
+    <vendor email="781377344@qq.com" url="https://github.com/guojianhua/code-search">guojianhua</vendor>
+
+    <description><![CDATA[
+    Supports search with Baidu, Google and StackOverflow. You can also customize the search service.
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensionPoints>
+        <extensionPoint name="CodeSearchInitializer" interface="java.lang.Runnable"/>
+    </extensionPoints>
+
+    <extensions defaultExtensionNs="io.heidou.codesearch">
+        <CodeSearchInitializer order="first" implementation="io.heidou.codesearch.CodeSearchInitializer"/>
+    </extensions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService serviceInterface="io.heidou.codesearch.settings.SearchServiceSettings"
+                        serviceImplementation="io.heidou.codesearch.settings.SearchServiceSettings"/>
+        <projectConfigurable groupId="root" groupWeight="52" instance="io.heidou.codesearch.settings.CodeSearchConfigurable"
+                             id="CodeSearch"/>
+    </extensions>
+
+    <application-components>
+        <component>
+            <implementation-class>io.heidou.codesearch.CodeSearchInitialConfigurator</implementation-class>
+        </component>
+    </application-components>
+
+    <actions>
+        <action id="HeiDou.CodeSearch.Baidu" class="io.heidou.codesearch.actions.BaiduSearchAction"/>
+        <action id="HeiDou.CodeSearch.Google" class="io.heidou.codesearch.actions.GoogleSearchAction"/>
+        <action id="HeiDou.CodeSearch.StackOverflow" class="io.heidou.codesearch.actions.StackOverflowSearchAction"/>
+        <action id="HeiDou.CodeSearch.CustomSearch" class="io.heidou.codesearch.actions.CustomSearchAction"/>
+    </actions>
+</idea-plugin>

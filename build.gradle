@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij' version '0.4.5'
+}
+
+group 'io.heidou'
+version '1.0.0'
+
+sourceCompatibility = javaVersion
+targetCompatibility = javaVersion
+
+repositories {
+    maven { url 'http://repo1.maven.org/maven2/'}
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+intellij {
+//    version ideaVersion
+    localPath 'D:\\dev\\JetBrains\\IntelliJ IDEA Community Edition 2018.2.7'
+    pluginName 'CodeSearch'
+    updateSinceUntilBuild = false
+}
+
+publishPlugin {
+    def publishPassword = "$System.env.PASSWORD"
+    username publishUsername
+    password publishPassword
+    channels publishChannels
+}
