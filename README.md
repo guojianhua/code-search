@@ -31,5 +31,5 @@ It provides search with Baidu, Google and StackOverflow. You can also customize 
   * specify search service URL: **required**. Click **Check** button to check the connection.
   * specify search service icon path: optional, recommend 16x16 png icon, for menu icon.
 - Click **Add** to close **Add Search Service** dialog and save custom search service.
-- Take affect after restart IDE.
-- After restart IDE, you can see the menu with the name of the search service in the right-click **Code Search** menu bar of the editor.
+- Take effect after restart IDE.
+- After restart IDE, you can see the menu with the name of the custom search service in the right-click **Code Search** menu bar of the editor.
