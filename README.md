@@ -17,7 +17,7 @@ It provides search with Baidu, Google and StackOverflow. You can also customize 
 
 - Download **CodeSearch** plugin from [JetBrains Plugins Repository](https://plugins.jetbrains.com/plugin/12578-codesearch).
 - Select **File | Setting... | Settings/Preferences | Plugins**.
-- Click ![settings](https://github.com/guojianhua/code-search/blob/master/imgs/settings2x.png) and then click **Install Plugin from Disk**.
+- Click ![gearPlain](https://github.com/guojianhua/code-search/blob/master/imgs/gearPlain.png) and then click **Install Plugin from Disk**.
 - Select the plugin archive file and click **OK**.
 - Click **OK** to apply the changes and restart the IDE if prompted.
 
