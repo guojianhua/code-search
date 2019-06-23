@@ -34,4 +34,4 @@ It provides search with Baidu, Google and StackOverflow. You can also customize 
 - Take effect after restart IDE.
 - After restart IDE, you can see the menu with the name of the custom search service in the right-click **Code Search** menu bar of the editor.
 
-![Add Search Service](https://github.com/guojianhua/code-search/blob/master/imgs/add-search-service.png)
+![Add Search Service](https://github.com/guojianhua/code-search/blob/master/imgs/add-search-service.gif)
