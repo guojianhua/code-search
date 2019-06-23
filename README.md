@@ -17,7 +17,7 @@ It provides search with Baidu, Google and StackOverflow. You can also customize 
 
 - Download **CodeSearch** plugin from [JetBrains Plugins Repository](https://plugins.jetbrains.com/plugin/12578-codesearch).
 - Select **File | Setting... | Settings/Preferences | Plugins**.
-- Click ![gearPlain](https://github.com/guojianhua/code-search/blob/master/imgs/gearPlain.png) and then click **Install Plugin from Disk**.
+- Click ![Settings Icon](https://github.com/guojianhua/code-search/blob/master/imgs/gearPlain.png) and then click **Install Plugin from Disk**.
 - Select the plugin archive file and click **OK**.
 - Click **OK** to apply the changes and restart the IDE if prompted.
 
@@ -33,3 +33,5 @@ It provides search with Baidu, Google and StackOverflow. You can also customize 
 - Click **Add** to close **Add Search Service** dialog and save custom search service.
 - Take effect after restart IDE.
 - After restart IDE, you can see the menu with the name of the custom search service in the right-click **Code Search** menu bar of the editor.
+
+![Add Search Service](https://github.com/guojianhua/code-search/blob/master/imgs/add-search-service.png)
