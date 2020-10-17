@@ -52,4 +52,22 @@ public class CodeSearchConfigurable implements SearchableConfigurable, Configura
     @Override
     public void apply() throws ConfigurationException {
     }
+
+    @Override
+    public Runnable enableSearch(String option) {
+        return null;
+    }
+
+    @Override
+    public String getHelpTopic() {
+        return null;
+    }
+
+    @Override
+    public void reset() {
+    }
+
+    @Override
+    public void disposeUIResources() {
+    }
 }

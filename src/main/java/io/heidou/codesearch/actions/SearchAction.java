@@ -7,7 +7,7 @@ import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.text.StringUtil;
-import com.intellij.util.io.URLUtil;
+import io.heidou.codesearch.util.UrlUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -38,6 +38,6 @@ public class SearchAction extends AnAction {
         final Editor editor = CommonDataKeys.EDITOR.getData(e.getDataContext());
         String selectedText = editor != null ? editor.getSelectionModel().getSelectedText() : "";
         selectedText = StringUtil.isEmptyOrSpaces(selectedText) ? "" : selectedText.trim();
-        BrowserUtil.browse(myUrl + URLUtil.encodeURIComponent(selectedText));
+        BrowserUtil.browse(myUrl + UrlUtils.encodeURIComponent(selectedText));
     }
 }
