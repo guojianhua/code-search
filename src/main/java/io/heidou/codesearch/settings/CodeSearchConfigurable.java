@@ -8,11 +8,13 @@ import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JComponent;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
 
 /**
  * Code search setting
+ *
  * @author guojianhua <781377344@qq.com>
  * @since 2019-04-07
  */

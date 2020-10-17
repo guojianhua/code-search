@@ -13,20 +13,24 @@ import com.intellij.util.ui.ListTableModel;
 import com.intellij.util.ui.UIUtil;
 import io.heidou.codesearch.i18n.CodeSearchBundle;
 import io.heidou.codesearch.model.SearchService;
+import org.jetbrains.annotations.NotNull;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.BorderFactory;
+import javax.swing.JPanel;
+import javax.swing.ListSelectionModel;
+import java.awt.BorderLayout;
 import java.awt.event.MouseEvent;
 import java.util.List;
 
 /**
  * Search service panel
+ *
  * @author guojianhua
  * @since 2019-04-11
  */
 public class SearchServicePanel extends JPanel {
-    private TableView<SearchService> searchServiceTable;
-    private ListTableModel<SearchService> searchServiceTableModel = new SearchServiceTableModel();
+    private final TableView<SearchService> searchServiceTable;
+    private final ListTableModel<SearchService> searchServiceTableModel = new SearchServiceTableModel();
 
     public SearchServicePanel() {
         this.setLayout(new BorderLayout());
@@ -85,66 +89,66 @@ public class SearchServicePanel extends JPanel {
     }
 
     private class AddSearchServiceAction extends AnActionButton {
-        private SearchServicePanel searchServicePanel;
+        private final SearchServicePanel mySearchServicePanel;
 
         public AddSearchServiceAction(SearchServicePanel searchServicePanel) {
             super(CodeSearchBundle.message("add.action.name"), IconUtil.getAddIcon());
-            this.searchServicePanel = searchServicePanel;
+            this.mySearchServicePanel = searchServicePanel;
         }
 
         @Override
-        public void actionPerformed(AnActionEvent e) {
+        public void actionPerformed(@NotNull AnActionEvent event) {
             SearchServiceDialog searchServiceDialog = new SearchServiceDialog(null, null,
-                    searchServicePanel);
+                    mySearchServicePanel);
             searchServiceDialog.show();
         }
     }
 
     private class DeleteSearchServiceAction extends AnActionButton {
-        private SearchServicePanel searchServicePanel;
+        private final SearchServicePanel mySearchServicePanel;
 
         public DeleteSearchServiceAction(SearchServicePanel searchServicePanel) {
             super(CodeSearchBundle.message("remove.action.name"), IconUtil.getRemoveIcon());
-            this.searchServicePanel = searchServicePanel;
+            this.mySearchServicePanel = searchServicePanel;
         }
 
         @Override
-        public void actionPerformed(AnActionEvent e) {
+        public void actionPerformed(@NotNull AnActionEvent event) {
             final int result = Messages.showYesNoDialog(CodeSearchBundle.message("remove.message"),
                     CodeSearchBundle.message("remove.title"), Messages.getWarningIcon());
             if (result == Messages.YES) {
-                final SearchService selectedSearchService = searchServicePanel.getSelectedSearchService();
+                final SearchService selectedSearchService = mySearchServicePanel.getSelectedSearchService();
                 SearchServiceSettings.getInstance().removeSearchService(selectedSearchService.getName());
-                searchServicePanel.refreshSearchServices();
+                mySearchServicePanel.refreshSearchServices();
             }
         }
 
         @Override
-        public void updateButton(AnActionEvent e) {
-            super.updateButton(e);
-            final SearchService selectedSearchService = searchServicePanel.getSelectedSearchService();
-            e.getPresentation().setEnabled(selectedSearchService != null);
+        public void updateButton(@NotNull AnActionEvent event) {
+            super.updateButton(event);
+            final SearchService selectedSearchService = mySearchServicePanel.getSelectedSearchService();
+            event.getPresentation().setEnabled(selectedSearchService != null);
         }
     }
 
     private class EditSearchServiceAction extends AnActionButton {
-        private SearchServicePanel searchServicePanel;
+        private final SearchServicePanel mySearchServicePanel;
 
         public EditSearchServiceAction(SearchServicePanel searchServicePanel) {
             super(CodeSearchBundle.message("edit.action.name"), IconUtil.getEditIcon());
-            this.searchServicePanel = searchServicePanel;
+            this.mySearchServicePanel = searchServicePanel;
         }
 
         @Override
-        public void actionPerformed(AnActionEvent e) {
+        public void actionPerformed(@NotNull AnActionEvent event) {
             showSearchServiceDialog();
         }
 
         @Override
-        public void updateButton(AnActionEvent e) {
-            super.updateButton(e);
-            final SearchService selectedSearchService = searchServicePanel.getSelectedSearchService();
-            e.getPresentation().setEnabled(selectedSearchService != null);
+        public void updateButton(@NotNull AnActionEvent event) {
+            super.updateButton(event);
+            final SearchService selectedSearchService = mySearchServicePanel.getSelectedSearchService();
+            event.getPresentation().setEnabled(selectedSearchService != null);
         }
     }
 }

@@ -5,6 +5,7 @@ import io.heidou.codesearch.model.SearchService;
 
 /**
  * Search service table model
+ *
  * @author guojianhua
  * @since 2019-04-11
  */

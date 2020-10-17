@@ -5,16 +5,17 @@ import com.intellij.util.ui.ColumnInfo;
 import io.heidou.codesearch.model.SearchService;
 import org.jetbrains.annotations.Nullable;
 
-import javax.swing.*;
+import javax.swing.JTable;
 import java.util.Comparator;
 
 /**
  * Search service column
+ *
  * @author guojianhua
  * @since 2019-04-12
  */
 public abstract class SearchServiceColumnInfo extends ColumnInfo<SearchService, String> {
-    private int myWidth;
+    private final int myWidth;
 
     public SearchServiceColumnInfo(String name, int width) {
         super(name);

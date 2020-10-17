@@ -7,26 +7,23 @@ import io.heidou.codesearch.model.SearchService;
 import io.heidou.codesearch.util.IconUtil;
 import org.jetbrains.annotations.Nullable;
 
-import javax.swing.*;
+import javax.swing.Icon;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
-import java.awt.*;
+import java.awt.Component;
 
 /**
  * Icon column
+ *
  * @author guojianhua
  * @since 2019-04-11
  */
 public class IconColumnInfo extends ColumnInfo<SearchService, Icon> {
-    private int width;
-
-    public IconColumnInfo(String name, int width) {
-        super(name);
-        this.width = width;
-    }
+    private static final int WIDTH = 50;
 
     public IconColumnInfo() {
-        this(CodeSearchBundle.message("icon.column.name"), 50);
+        super(CodeSearchBundle.message("icon.column.name"));
     }
 
     @Nullable
@@ -37,7 +34,7 @@ public class IconColumnInfo extends ColumnInfo<SearchService, Icon> {
 
     @Override
     public int getWidth(JTable table) {
-        return width;
+        return WIDTH;
     }
 
     @Nullable
@@ -51,7 +48,8 @@ public class IconColumnInfo extends ColumnInfo<SearchService, Icon> {
      */
     private static final TableCellRenderer ourIconRenderer = new DefaultTableCellRenderer() {
         @Override
-        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
+                boolean hasFocus, int row, int column) {
             JBLabel label = new JBLabel((Icon)value);
             if (table.getSelectedRow() == row) {
                 label.setBackground(table.getSelectionBackground());
@@ -61,6 +59,5 @@ public class IconColumnInfo extends ColumnInfo<SearchService, Icon> {
 
             return label;
         }
-
     };
 }

@@ -19,6 +19,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * Search service settings
+ *
  * @author guojianhua
  * @since 2019-04-07
  */

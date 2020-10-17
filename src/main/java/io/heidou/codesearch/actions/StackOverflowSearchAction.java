@@ -4,6 +4,7 @@ import io.heidou.codesearch.util.IconUtil;
 
 /**
  * Search with StackOverflow
+ *
  * @author guojianhua
  * @since 2019-04-21
  */

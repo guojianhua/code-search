@@ -11,20 +11,21 @@ import com.intellij.util.io.URLUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import javax.swing.*;
+import javax.swing.Icon;
 
 /**
  * Search base class
+ *
  * @author guojianhua
  * @since 2019-04-21
  */
 public class SearchAction extends AnAction {
-    private String url;
+    private final String myUrl;
 
     public SearchAction(@NotNull String text, @Nullable String description, @Nullable Icon icon,
-                        @NotNull String url) {
+            @NotNull String url) {
         super(text, description, icon);
-        this.url = url;
+        this.myUrl = url;
     }
 
     @Override
@@ -37,6 +38,6 @@ public class SearchAction extends AnAction {
         final Editor editor = CommonDataKeys.EDITOR.getData(e.getDataContext());
         String selectedText = editor != null ? editor.getSelectionModel().getSelectedText() : "";
         selectedText = StringUtil.isEmptyOrSpaces(selectedText) ? "" : selectedText.trim();
-        BrowserUtil.browse(url + URLUtil.encodeURIComponent(selectedText));
+        BrowserUtil.browse(myUrl + URLUtil.encodeURIComponent(selectedText));
     }
 }

@@ -4,8 +4,21 @@
     <vendor email="781377344@qq.com" url="https://github.com/guojianhua/code-search">guojianhua</vendor>
 
     <description><![CDATA[
-    Supports search with Baidu, Google and StackOverflow. You can also customize the search service.
+    Support for search with Baidu, Google, StackOverflow and GitHub. You can also customize the search service.
     ]]></description>
+
+    <change-notes><![CDATA[
+    <p>1.1.0 (2020-10-17)</p>
+    <ul>
+        <li>Support for search with GitHub</li>
+        <li>fixes issue #1 and #2: compatibility with JetBrains series IDE 2020.1+</li>
+    </ul>
+    <p>1.0.0 (2019-06-18)</p>
+    <ul>
+        <li>Support for search with Baidu, Google and StackOverflow.</li>
+        <li>Support for custom search service</li>
+    </ul>
+    ]]></change-notes>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
@@ -13,7 +26,6 @@
     <depends>com.intellij.modules.lang</depends>
     -->
     <depends>com.intellij.modules.platform</depends>
-    <depends>com.intellij.modules.lang</depends>
 
     <idea-version since-build="145.0"/>
 
@@ -21,27 +33,31 @@
         <extensionPoint name="CodeSearchInitializer" interface="java.lang.Runnable"/>
     </extensionPoints>
 
-    <extensions defaultExtensionNs="io.heidou.codesearch">
-        <CodeSearchInitializer order="first" implementation="io.heidou.codesearch.CodeSearchInitializer"/>
-    </extensions>
-
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceInterface="io.heidou.codesearch.settings.SearchServiceSettings"
-                        serviceImplementation="io.heidou.codesearch.settings.SearchServiceSettings"/>
+        <applicationService serviceImplementation="io.heidou.codesearch.settings.SearchServiceSettings"/>
         <projectConfigurable groupId="root" groupWeight="52" instance="io.heidou.codesearch.settings.CodeSearchConfigurable"
                              id="CodeSearch"/>
+        <postStartupActivity implementation="io.heidou.codesearch.CodeSearchStartupActivity"/>
     </extensions>
-
-    <application-components>
-        <component>
-            <implementation-class>io.heidou.codesearch.CodeSearchInitialConfigurator</implementation-class>
-        </component>
-    </application-components>
 
     <actions>
         <action id="HeiDou.CodeSearch.Baidu" class="io.heidou.codesearch.actions.BaiduSearchAction"/>
         <action id="HeiDou.CodeSearch.Google" class="io.heidou.codesearch.actions.GoogleSearchAction"/>
         <action id="HeiDou.CodeSearch.StackOverflow" class="io.heidou.codesearch.actions.StackOverflowSearchAction"/>
+        <action id="HeiDou.CodeSearch.GitHub" class="io.heidou.codesearch.actions.GitHubSearchAction"/>
         <action id="HeiDou.CodeSearch.CustomSearch" class="io.heidou.codesearch.actions.CustomSearchAction"/>
+
+        <group id="HeiDou.CodeSearch" text="Code Search" popup="true">
+            <separator/>
+            <reference ref="HeiDou.CodeSearch.Baidu"/>
+            <reference ref="HeiDou.CodeSearch.Google"/>
+            <reference ref="HeiDou.CodeSearch.StackOverflow"/>
+            <reference ref="HeiDou.CodeSearch.GitHub"/>
+            <separator/>
+            <reference ref="HeiDou.CodeSearch.CustomSearch"/>
+            <separator/>
+
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </group>
     </actions>
 </idea-plugin>

@@ -6,12 +6,13 @@ import org.jetbrains.annotations.Nullable;
 
 /**
  * Description column
+ *
  * @author guojianhua
  * @since 2019-04-12
  */
 public class DescriptionColumnInfo extends SearchServiceColumnInfo {
     public DescriptionColumnInfo() {
-        super(CodeSearchBundle.message("desc.column.name"), -1);
+        super(CodeSearchBundle.message("desc.column.name"));
     }
 
     @Nullable

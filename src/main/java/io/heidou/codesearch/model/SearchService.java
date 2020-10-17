@@ -8,12 +8,13 @@ import java.util.Objects;
 
 /**
  * Search type model
+ *
  * @author guojianhua
  * @since 2019-04-07
  */
 @Tag("searchService")
 @Property(style = Property.Style.ATTRIBUTE)
-public class SearchService /*implements java.io.Serializable*/ {
+public class SearchService {
     /**
      * the name of the search type, used as a action menu name
      */

@@ -19,15 +19,18 @@ import io.heidou.codesearch.model.SearchService;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * Add or edit search service dialog
+ *
  * @author guojianhua
  * @since 2019-04-14
  */
@@ -39,10 +42,10 @@ public class SearchServiceDialog extends DialogWrapper {
 
     private static final SimpleTextAttributes REQUIRED_ATTRS = SimpleTextAttributes.ERROR_ATTRIBUTES;
 
-    private Project myProject;
-    private SearchService mySearchService;
-    private SearchServicePanel mySearchServicePanel;
-    private boolean isAdd;
+    private final Project myProject;
+    private final SearchService mySearchService;
+    private final SearchServicePanel mySearchServicePanel;
+    private final boolean isAdd;
 
     private JPanel contentPanel;
     private JTextField nameTextField;
@@ -146,7 +149,6 @@ public class SearchServiceDialog extends DialogWrapper {
     @Override
     public ValidationInfo doValidate() {
         String message = null;
-        final String name = getName();
         if (StringUtil.isEmptyOrSpaces(getName())) {
             message = CodeSearchBundle.message("name.required");
         } else if (StringUtil.isEmptyOrSpaces(getUrl())) {

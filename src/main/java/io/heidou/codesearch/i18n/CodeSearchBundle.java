@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 
 /**
  * Code search bundle
+ *
  * @author guojianhua
  * @since 2019-04-07
  */

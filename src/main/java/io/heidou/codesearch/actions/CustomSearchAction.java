@@ -9,6 +9,7 @@ import io.heidou.codesearch.settings.CodeSearchConfigurable;
 
 /**
  * Custom search action
+ *
  * @author guojianhua
  * @since 2019-03-25
  */
